@@ -3,7 +3,7 @@
 
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget
-from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import Qt
 
 class Example(QWidget):
 
@@ -15,10 +15,14 @@ class Example(QWidget):
     def initUI(self):
 
         self.setGeometry(300, 300, 300, 200)
-        self.setWindowTitle('Icon')
-        self.setWindowIcon(QIcon('./wather.jpg'))
+        self.setWindowTitle('Event handler')
 
         self.show()
+
+    def keyPressEvent(self, e):
+
+        if e.key() == Qt.Key_?:
+            self.close()
 
 if __name__ == '__main__':
 
